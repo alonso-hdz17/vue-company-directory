@@ -31,10 +31,10 @@
       .menu {
         @apply flex gap-2;
         &-item {
-          @apply rounded-md px-4 py-2 hover:bg-orange-400 hover:text-slate-200;
+          @apply rounded-md px-3 py-2 hover:bg-orange-400 hover:text-slate-200;
         }
         &-login {
-          @apply rounded-md bg-red-500 px-4 py-2 text-slate-100 hover:bg-red-700;
+          @apply rounded-md bg-red-500 px-3 py-2 text-slate-100 hover:bg-red-700;
         }
       }
     }
