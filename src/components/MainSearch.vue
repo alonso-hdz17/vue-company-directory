@@ -27,7 +27,7 @@
       @apply rounded-md border-0 px-4 py-4 text-slate-500 placeholder-slate-600 outline-none focus:ring focus:ring-neutral-600;
     }
     .icon {
-      @apply absolute right-0 z-10 py-4 pr-6 text-slate-500;
+      @apply absolute right-0 z-10 py-4 pr-6;
     }
   }
 </style>
