@@ -1,15 +1,34 @@
 <script setup>
-  import { useAuth } from '@/composables/useAuth'
-  const { login } = useAuth()
+  import { ref } from 'vue'
+  import { useRouter, useRoute } from 'vue-router'
 
-  const logUserIn = () => {}
+  import { useAuth } from '@/composables/useAuth'
+  const { login, logout } = useAuth()
+
+  const router = useRouter()
+  const route = useRoute()
+
+  const username = ref('')
+  const password = ref('')
+
+  const logUserIn = () => {
+    if (login(username.value, password.value)) {
+      if (route.query.redirect) {
+        router.push(route.query.redirect)
+      } else {
+        router.push({ name: 'Home' })
+      }
+    } else {
+      logout()
+    }
+  }
 </script>
 
 <template>
-  <form class="login-form" @submit="logUserIn">
-    <input type="text" placeholder="Username" />
-    <input type="password" placeholder="Password" />
-    <button type="submit" class="bg-blue-500 px-4 py-2" @click="login('admin', 'admin')">Log In</button>
+  <form class="login-form" @submit.prevent="logUserIn">
+    <input v-model="username" type="text" placeholder="Username" />
+    <input v-model="password" type="password" placeholder="Password" />
+    <button type="submit" class="bg-blue-500 px-4 py-2">Log In</button>
   </form>
 </template>
 
