@@ -1,20 +1,29 @@
 /* eslint-env node */
-require('@rushstack/eslint-patch/modern-module-resolution')
+require("@rushstack/eslint-patch/modern-module-resolution");
 
 module.exports = {
   root: true,
-  extends: ['plugin:vue/vue3-recommended', 'eslint:recommended', 'prettier'],
-  plugins: ['prettier'],
+  extends: [
+    "plugin:vue/vue3-recommended",
+    "eslint:recommended",
+    "@vue/eslint-config-prettier",
+  ],
   parserOptions: {
-    ecmaVersion: 'latest',
+    ecmaVersion: "latest",
   },
   rules: {
-    'prettier/prettier': ['error'],
-    'arrow-body-style': 'off',
-    'prefer-arrow-callback': 'off',
+    "prettier/prettier": [
+      "error",
+      {
+        singleQuote: true,
+        semi: false,
+      },
+    ],
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
   },
   env: {
     browser: true,
     node: true,
   },
-}
+};
