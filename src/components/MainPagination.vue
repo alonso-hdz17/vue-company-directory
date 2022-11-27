@@ -1,6 +1,5 @@
 <script setup>
   import useAPI from '@/composables/useAPI'
-import { async } from '@firebase/util';
 
   const { activePage, pages, getEmployees } = useAPI()
 
